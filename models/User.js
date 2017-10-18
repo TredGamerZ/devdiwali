@@ -9,6 +9,7 @@ var UserSchema = Schema({
     name:String,
     location:String,
     type:Number,
+    image:String,
     facebook:{
         state:Number,
         id:String,

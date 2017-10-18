@@ -19,13 +19,19 @@ router.get('/facebook', function (req, res, next) {
     req.session.queryUrl = queryUrl;
     req.session.save();
     console.log(req.session.queryUrl);
+    console.log("Up Done");
     next();
 }, passport.authenticate('facebook', {callbackURL: 'auth/facebook/callback', scope: 'email'}));
 
 
 router.get('/facebook/callback', passport.authenticate('facebook',
     {callbackURL: '/auth/facebook/callback'}), function (req, res, next) {
-    res.redirect(req.session.queryUrl);
+    res.redirect('/');
+});
+router.get('/logout', function (req, res) {
+    req.logout();
+    // req.flash('success', 'Logged out Successfully');
+    res.redirect('/');
 });
 
 module.exports = router;

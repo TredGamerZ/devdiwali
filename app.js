@@ -6,6 +6,9 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require("mongoose");
 var session = require('express-session');
+var passport = require('passport');
+
+require('./config/passport')(passport);
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -27,9 +30,22 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+
+app.use(session({ secret: 'LeanTrackBSC', resave: true,
+    saveUninitialized: true, cookie:{
+        path    : '/',
+        httpOnly: false,
+        secure: false,
+        maxAge  : 24*60*60*1000}}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.use('/', index);
 app.use('/users', users);
 app.use('/auth',auth);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

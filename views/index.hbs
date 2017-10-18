@@ -44,7 +44,11 @@
     }
 </style>
 <canvas id="myCanvas"></canvas>
+{{#if user}}
+    <p> {{user.name}}</p>
 
+{{/if}}
+<a class="btn btn-outline-primary" href="/auth/facebook">Fb Login</a>
 <script>
     var canvas = document.getElementById("myCanvas");
     var c = canvas.getContext('2d');
