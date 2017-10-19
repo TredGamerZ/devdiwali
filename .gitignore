@@ -42,6 +42,9 @@ typings/
 # Optional npm cache directory
 .npm
 
+.elasticbeanstalk/
+.idea/
+
 # Optional eslint cache
 .eslintcache
 
@@ -56,4 +59,14 @@ typings/
 
 # dotenv environment variables file
 .env
+
+
+
+# Elastic Beanstalk Files
+
+.elasticbeanstalk/*
+
+!.elasticbeanstalk/*.cfg.yml
+
+!.elasticbeanstalk/*.global.yml
 
