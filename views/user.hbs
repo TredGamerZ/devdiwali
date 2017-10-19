@@ -241,7 +241,11 @@
 
 
         this.draw = function() {
-            c.beginPath();
+            <!--if(link == {{userLight._id}})-->
+            <!--{-->
+                <!--this.color = "white";-->
+            <!--}-->
+                c.beginPath();
             c.arc(this.xCoordinate, this.yCoordinate, Math.abs(this.radius), 0, Math.PI * 2);
             c.fillStyle = this.color;
             c.fill();
@@ -319,7 +323,7 @@
         var strength = Math.random() * 10;
         var randomRadius = strength + strength*25/100 + 5;
         console.log("Entered");
-        circleArray.push(new Circle(randomXCoordinate,randomYCoordinate ,randomRadius,data[i].strength,data[i].creatorName,data[i].creatorLocation,data[i].id))
+        circleArray.push(new Circle(randomXCoordinate,randomYCoordinate ,randomRadius,data[i].strength,data[i].creatorName,data[i].creatorLocation,data[i]._id))
     }
 
 

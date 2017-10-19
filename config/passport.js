@@ -13,7 +13,7 @@ passport.use(new FacebookStrategy({
 
         clientID: provider.facebook.key,
         clientSecret: provider.facebook.secret,
-        profileFields: ['id', 'emails', 'name' , 'photos','location']
+        profileFields: ['id', 'emails', 'name' , 'photos','location','hometown']
     },
     function (accessToken, refreshToken, profile, done) {
     console.log("Here");
@@ -38,7 +38,7 @@ passport.use(new FacebookStrategy({
                 if(profile._json.location){
                     newSocial.location = profile._json.location.name;
                 }
-                else if(profile._json.hometown){
+                else if(profile._json.homeTown){
                     newSocial.location = profile._json.hometown.name;
                 }
                 else {
