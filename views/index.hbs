@@ -106,9 +106,8 @@
         var sideCircleArray = [];
 
         for(var i = 1 ; i<=strength ;i++){
-            var nc = new sideCircle(xCoordinate,yCoordinate,radius,i);
+            var nc = new Sparkles(xCoordinate,yCoordinate,radius,i);
             sideCircleArray.push(nc);
-            console.log("SE");
         }
         this.radius = radius;
         this.color = colorArray[randomNumber];
@@ -164,7 +163,7 @@
             this.draw();
             for(var i = 1 ; i<=strength-1 ;i++){
 
-                sideCircleArray[i].update(this.xVelocity , this.yVelocity,su);
+                sideCircleArray[i].update(this.xVelocity , this.yVelocity,su, this.xCoordinate, this.yCoordinate);
             }
 
 
@@ -178,38 +177,90 @@
             c.arc(this.xCoordinate, this.yCoordinate, Math.abs(this.radius), 0, Math.PI * 2);
             c.fillStyle = this.color;
             c.fill();
-
-
         }
     }
 
+    function range(a, b) {
+        return (b-a) * Math.random() + a;
+    }
 
-    function sideCircle(xc,yc,radiusParent,num) {
-
-        this.xCoordinate = xc + Math.random()*radiusParent*2;
-        this.yCoordinate = yc + Math.random()*radiusParent*2;
-        this.radius = radiusParent - num;
-        this.co = colorArray[Math.floor(Math.random()*5)]
-
+//    function Sparkles(xc, yc, radiusParent, num) {
+//
+//        this.xCoordinate = xc + Math.random()*radiusParent*2;
+//        this.yCoordinate = yc + Math.random()*radiusParent*2;
+//        this.radius = radiusParent - num;
+//        this.co = colorArray[Math.floor(Math.random()*5)]
+//        this.index = num;
+//
+//
+//        this.draw = function () {
+//            c.beginPath();
+//            c.arc(this.xCoordinate , this.yCoordinate ,this.radius, 0, Math.PI * 2);
+//            c.fillStyle = this.co;
+//            c.fill();
+//        };
+//        function range(a, b) {
+//            return (b - a) * Math.random() + a;
+//        }
+//        this.update = function (nx,ny,su, xx, yy) {
+//            debugger;
+//            this.xCoordinate += nx + range(-1, 1);
+//            this.yCoordinate += ny + range(-1, 1);
+//            this.radius +=su;
+//            this.draw();
+//        }
+//
+//    }
+    function Sparkles(xc, yc, r, index, rad) {
+        var self = this;
+        var limit = r * 10;
+        self.radius = range(2, 6);
+        self.parX = xc;
+        self.parY = yc;
+        self.vX = range(-2, 2);
+        self.vY = range(-2, 2);
+        replace();
 
         this.draw = function () {
             c.beginPath();
-
-
-            c.arc(this.xCoordinate , this.yCoordinate ,this.radius, 0, Math.PI * 2);
+            c.arc(self.xCoordinate , self.yCoordinate ,self.radius, 0, Math.PI * 2);
             c.fillStyle = this.co;
             c.fill();
         };
 
-        this.update = function (nx,ny,su) {
-            this.xCoordinate += nx;
-            this.yCoordinate += ny;
-            this.radius +=su;
-            this.draw();
+        function getY(r, x) {
+            return Math.sqrt(r * r - x * x);
+        }
+
+        function replace () {
+            self.xCoordinate = self.parX + range(-limit + self.radius, limit - self.radius);
+            var y = getY(limit, self.xCoordinate - self.parX);
+            self.yCoordinate = self.parY + range(-y, y);
+            self.vX = range(-2, 2);
+            self.vY = range(-2, 2);
+        }
+
+        function sqr(a) {return a * a;}
+        function gettingOut() {
+            var x = self.xCoordinate,
+                y = self.yCoordinate,
+                xx = self.parX,
+                yy = self.parY;
+            return sqr(xx-x) + sqr(yy-y) > sqr(limit);
+
+        }
+
+        this.update = function (nx, ny, su, xx, yy) {
+            self.parX = xx;
+            self.parY = yy;
+            self.xCoordinate += nx + self.vX;
+            self.yCoordinate += ny + self.vY;
+
+            if(gettingOut()) replace();
+            self.draw();
         }
 
     }
-
     var colorArray =["#092140","#024959","#F2C777","#F24738","#BF2A2A"];
     var myCircle = new MainCircle(canvasWidth/2,canvasHeight/2,50);
 
