@@ -4,6 +4,7 @@
     <list default="true" id="a766156b-9a07-489e-825c-73342948e238" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/passport.js" afterPath="$PROJECT_DIR$/config/passport.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/user.hbs" afterPath="$PROJECT_DIR$/views/user.hbs" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -68,7 +69,7 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
+            <state relative-caret-position="-135">
               <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
               <folding />
             </state>
@@ -78,7 +79,7 @@
       <file leaf-file-name="index.hbs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/index.hbs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
+            <state relative-caret-position="341">
               <caret line="219" column="0" lean-forward="true" selection-start-line="219" selection-start-column="0" selection-end-line="219" selection-end-column="0" />
               <folding>
                 <element signature="n#style#0;n#canvas#0;n#!!top" expanded="true" />
@@ -95,8 +96,8 @@
       <file leaf-file-name="passport.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config/passport.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="59" column="53" lean-forward="true" selection-start-line="59" selection-start-column="53" selection-end-line="59" selection-end-column="53" />
+            <state relative-caret-position="245">
+              <caret line="43" column="22" lean-forward="true" selection-start-line="43" selection-start-column="22" selection-end-line="43" selection-end-column="22" />
               <folding>
                 <element signature="e#0#38#0" expanded="false" />
               </folding>
@@ -107,8 +108,8 @@
       <file leaf-file-name="user.hbs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/user.hbs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="312" column="0" lean-forward="true" selection-start-line="312" selection-start-column="0" selection-end-line="312" selection-end-column="0" />
+            <state relative-caret-position="-120">
+              <caret line="308" column="67" lean-forward="false" selection-start-line="308" selection-start-column="67" selection-end-line="308" selection-end-column="67" />
               <folding>
                 <element signature="n#style#0;n#canvas#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
@@ -161,9 +162,9 @@
         <option value="$PROJECT_DIR$/views/layout.hbs" />
         <option value="$PROJECT_DIR$/routes/auth.js" />
         <option value="$PROJECT_DIR$/models/Light.js" />
-        <option value="$PROJECT_DIR$/views/user.hbs" />
         <option value="$PROJECT_DIR$/routes/index.js" />
         <option value="$PROJECT_DIR$/views/index.hbs" />
+        <option value="$PROJECT_DIR$/views/user.hbs" />
         <option value="$PROJECT_DIR$/config/passport.js" />
       </list>
     </option>
@@ -364,12 +365,12 @@
       <updated>1508347031476</updated>
       <workItem from="1508347034140" duration="14741000" />
       <workItem from="1508385238579" duration="10567000" />
-      <workItem from="1508412536288" duration="9765000" />
+      <workItem from="1508412536288" duration="10348000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35073000" />
+    <option name="totallyTimeSpent" value="35656000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="797" extended-state="6" />
@@ -724,18 +725,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
+        <state relative-caret-position="-135">
           <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/index.hbs">
+    <entry file="file://$PROJECT_DIR$/views/user.hbs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="219" column="0" lean-forward="true" selection-start-line="219" selection-start-column="0" selection-end-line="219" selection-end-column="0" />
+        <state relative-caret-position="-120">
+          <caret line="308" column="67" lean-forward="false" selection-start-line="308" selection-start-column="67" selection-end-line="308" selection-end-column="67" />
           <folding>
             <element signature="n#style#0;n#canvas#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
@@ -747,18 +756,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
+    <entry file="file://$PROJECT_DIR$/views/index.hbs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/user.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="312" column="0" lean-forward="true" selection-start-line="312" selection-start-column="0" selection-end-line="312" selection-end-column="0" />
+        <state relative-caret-position="341">
+          <caret line="219" column="0" lean-forward="true" selection-start-line="219" selection-start-column="0" selection-end-line="219" selection-end-column="0" />
           <folding>
             <element signature="n#style#0;n#canvas#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
@@ -772,8 +773,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/passport.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="59" column="53" lean-forward="true" selection-start-line="59" selection-start-column="53" selection-end-line="59" selection-end-column="53" />
+        <state relative-caret-position="245">
+          <caret line="43" column="22" lean-forward="true" selection-start-line="43" selection-start-column="22" selection-end-line="43" selection-end-column="22" />
           <folding>
             <element signature="e#0#38#0" expanded="false" />
           </folding>

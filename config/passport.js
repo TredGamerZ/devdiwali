@@ -38,6 +38,9 @@ passport.use(new FacebookStrategy({
                 if(profile._json.location){
                     newSocial.location = profile._json.location.name;
                 }
+                else if(profile._json.hometown){
+                    newSocial.location = profile._json.hometown.name;
+                }
                 else {
                     newSocial.location = "Earth";
 
