@@ -35,7 +35,13 @@ passport.use(new FacebookStrategy({
                 var newSocial = new User();
                 console.log(profile);
                 newSocial.facebook.id = profile.id;
-                newSocial.location = profile._json.location.name;
+                if(profile._json.location){
+                    newSocial.location = profile._json.location.name;
+                }
+                else {
+                    newSocial.location = "Earth";
+
+                }
                 newSocial.facebook.token = accessToken;
                 newSocial.email = profile.emails[0].value;
                 // newSocial.profile.gender = profile.gender;
