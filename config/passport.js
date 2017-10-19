@@ -57,7 +57,7 @@ passport.use(new FacebookStrategy({
                 newLight.creator = newSocial._id;
                 newLight.creatorName = newSocial.name;
                 newLight.creatorLocation = newSocial.location;
-                newLight.strength = 1;
+                newLight.strength = Math.random()*10;
 
                 newLight.save();
 
