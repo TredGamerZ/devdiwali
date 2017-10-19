@@ -93,8 +93,11 @@
 
         }
     }
+    function sideCircle(xc,yc,radius) {
 
-    function Circle(xCoordinate, yCoordinate, radius) {
+    }
+
+    function Circle(xCoordinate, yCoordinate, radius,strength) {
         var randomNumber = Math.floor((Math.random() * 4));
         var randomTrueOrFalse = Math.floor(Math.random() * 2);
         var randomTrueOrFalseTwo = Math.floor(Math.random() * 2);
@@ -158,6 +161,24 @@
             c.arc(this.xCoordinate, this.yCoordinate, Math.abs(this.radius), 0, Math.PI * 2);
             c.fillStyle = this.color;
             c.fill();
+
+            for(var i = 1 ; i<=strength ;i ++){
+                c.beginPath();
+                r =  Math.abs(this.radius) - i;
+                c.arc(this.xCoordinate + radius +10*i, this.yCoordinate +radius + 10*i,r, 0, Math.PI * 2);
+                c.fillStyle = this.color;
+                c.fill();
+
+//                else if(r<0) {
+//                    c.arc(this.xCoordinate + radius +10*i, this.yCoordinate +radius + 10*i,this.radius, 0, Math.PI * 2);
+//                    c.fillStyle = this.color;
+//                    c.fill();
+//                }
+//                c.arc(this.xCoordinate + radius +10*i, this.yCoordinate +radius + 10*i, this.radius - i, 0, Math.PI * 2);
+//                c.fillStyle = this.color;
+//                c.fill();
+            }
+
         }
     }
 
@@ -171,8 +192,10 @@
     for (var i = 0; i < 8; i++) {
         var randomXCoordinate = Math.random() * canvasWidth ;
         var randomYCoordinate = Math.random() * canvasHeight ;
-        var randomRadius = Math.random() * 5 + 5;
-        circleArray.push(new Circle(randomXCoordinate,randomYCoordinate ,randomRadius))
+        var strength = Math.random() * 10;
+        var randomRadius = strength + strength*25/100;
+
+        circleArray.push(new Circle(randomXCoordinate,randomYCoordinate ,randomRadius,strength))
     }
 
 
