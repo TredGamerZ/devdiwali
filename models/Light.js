@@ -7,11 +7,13 @@ var Schema = mongoose.Schema;
 
 var LightSchema = Schema({
 
-    creator:{ type: Schema.Types.ObjectId, ref: 'User'},
+    // creator:{ type: Schema.Types.ObjectId, ref: 'User'},
     creatorName : String,
     creatorLocation :String,
-    lighter:[{type:Schema.Types.ObjectId, ref:'User'}],
-    strength:Number
+    // lighter:[{type:Schema.Types.ObjectId, ref:'User'}],
+    strength:Number,
+    cid:String,
+    lighter:[{lname:String, lloc:String}]
 });
 
 var Light = module.exports = mongoose.model('Light',LightSchema);

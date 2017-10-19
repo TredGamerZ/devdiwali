@@ -1,4 +1,6 @@
 <style>
+    html{
+        height:100%;}
     canvas{
         background: #111;  /* fallback for old browsers */
         /*background: -webkit-linear-gradient(to right, #5B86E5, #36D1DC);  !* Chrome 10-25, Safari 5.1-6 *!*/
@@ -43,12 +45,35 @@
         box-shadow: 0px 0px 10px deepskyblue;
     }
 </style>
-<canvas id="myCanvas"></canvas>
+
+<canvas id="myCanvas" style="position: relative;z-index: 999"></canvas>
+<div class="container h-100" style="position: relative;top:-100%;z-index:">
+    <div class="row h-100 align-items-center">
+        <div class="col mt-5">
+            <div class="container mt-5">
+                <div class="row pt-5 justify-content-center">
+                    <div class="col-md-4 mt-5 pt-5 text-center" style="z-index: 1000" >
+                        <form class="form-dark" action="/light/add" method="post" style="z-index: 1000">
+                            <div class="form-group mt-3">
+                                <!--<label for="exampleFormControlInput1">Email address</label>-->
+                                <input type="text" class="form-control" name="name"id="exampleFormControlInput1" placeholder="Enter your Name" required><br>
+                                <input type="text" class="form-control" name="loc"id="exampleFormControlInput1" placeholder="Enter your Location" required>
+                            </div>
+                            <button type="submit" class=" btn btn-outline-primary " style="z-index: 1000">Light Up</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{{endif}}
 {{#if user}}
     <p> {{user.name}}</p>
 
 {{/if}}
-<a class="btn btn-outline-primary" href="/auth/facebook">Fb Login</a>
+<!--<a class="btn btn-outline-primary" href="/auth/facebook">Fb Login</a>-->
 <script>
     var canvas = document.getElementById("myCanvas");
     var c = canvas.getContext('2d');
@@ -81,12 +106,12 @@
             c.arc(xC, yC, Math.abs(ra), 0, Math.PI * 2);
             c.fillStyle = "white";
             c.fill();
-
-            c.font = "20px Quicksand";
-            c.fillStyle = "#FFFFFF";
-            c.fillText("You Are Here!",xC,yC+ra+40);
-            c.font = "14px Quicksand";
-            c.fillText("From New Delhi",xC,yC+ra+60);
+//
+//            c.font = "20px Quicksand";
+//            c.fillStyle = "#FFFFFF";
+//            c.fillText("You Are Here!",xC,yC+ra+40);
+//            c.font = "14px Quicksand";
+//            c.fillText("From New Delhi",xC,yC+ra+60);
         };
         this.update = function() {
           this.draw();
@@ -94,7 +119,7 @@
         }
     }
 
-    function Circle(xCoordinate, yCoordinate, radius,strength) {
+    function Circle(xCoordinate, yCoordinate, radius,strength,name,location,link) {
         var randomNumber = Math.floor((Math.random() * 5));
         var randomTrueOrFalse = Math.floor(Math.random() * 2);
         var randomTrueOrFalseTwo = Math.floor(Math.random() * 2);
@@ -213,13 +238,15 @@
 //    }
     function Sparkles(xc, yc, r, index, rad) {
         var self = this;
-        var limit = r * 10;
-        self.radius = range(2, 6);
+        var limit = r * 4;
+        self.radius = range(1, 5);
         self.parX = xc;
         self.parY = yc;
-        self.vX = range(-2, 2);
-        self.vY = range(-2, 2);
+        self.vX = range(-1.5, 1.5);
+        self.vY = range(-1.5, 1.5);
         replace();
+        this.co = colorArray[(Math.floor(Math.random()*5))];
+
 
         this.draw = function () {
             c.beginPath();
@@ -272,7 +299,7 @@
         var randomXCoordinate = Math.random() * canvasWidth ;
         var randomYCoordinate = Math.random() * canvasHeight ;
         var strength = Math.random() * 10;
-        var randomRadius = strength + strength*25/100;
+        var randomRadius = strength + strength*25/100 + 5;
         console.log("Entered");
         circleArray.push(new Circle(randomXCoordinate,randomYCoordinate ,randomRadius,strength))
     }
