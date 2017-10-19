@@ -1,9 +1,9 @@
 <style>
     canvas{
-        background: #36D1DC;  /* fallback for old browsers */
-        background: -webkit-linear-gradient(to right, #5B86E5, #36D1DC);  /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(to right, #5B86E5, #36D1DC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    }
+        background: #111;  /* fallback for old browsers */
+        /*background: -webkit-linear-gradient(to right, #5B86E5, #36D1DC);  !* Chrome 10-25, Safari 5.1-6 *!*/
+        /*background: linear-gradient(to right, #5B86E5, #36D1DC); !* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *!*/
+    /*}*/}
     body{
         padding: 0px;
     }
@@ -93,17 +93,23 @@
 
         }
     }
-    function sideCircle(xc,yc,radius) {
-
-    }
 
     function Circle(xCoordinate, yCoordinate, radius,strength) {
-        var randomNumber = Math.floor((Math.random() * 4));
+        var randomNumber = Math.floor((Math.random() * 5));
         var randomTrueOrFalse = Math.floor(Math.random() * 2);
         var randomTrueOrFalseTwo = Math.floor(Math.random() * 2);
 
         this.xCoordinate = xCoordinate;
         this.yCoordinate = yCoordinate;
+
+
+        var sideCircleArray = [];
+
+        for(var i = 1 ; i<=strength ;i++){
+            var nc = new sideCircle(xCoordinate,yCoordinate,radius,i);
+            sideCircleArray.push(nc);
+            console.log("SE");
+        }
         this.radius = radius;
         this.color = colorArray[randomNumber];
 
@@ -127,6 +133,7 @@
             var yDistance = mouseY - this.yCoordinate;
             var originalRadius = radius;
             this.yCoordinate += this.yVelocity;
+            var su = 0;
 
 //             Movement Functions
             if (this.xCoordinate + this.radius > canvasWidth || this.xCoordinate - this.radius < 0) {
@@ -140,9 +147,11 @@
             // When distance between circle center and mouse on horizontal axis is less than 50, increase radius until it is equal to 35
             if (xDistance < 50 && xDistance > -50 && this.radius < maxRadius && yDistance < 50 && yDistance > -50) {
                 this.radius += 2;
+                su = 1;
                }
             else if ((xDistance >= 50 && originalRadius < this.radius) || (xDistance <= -50 && originalRadius < this.radius) || (yDistance >= 50 && originalRadius < this.radius) || (yDistance <= -50 && originalRadius < this.radius)) {
                 this.radius -= 2;
+                su = -1;
             };
             if(xDistance <50 && xDistance > -50 && yDistance < 50 && yDistance > -50){
                 c.font = "20px Quicksand";
@@ -153,8 +162,16 @@
 
             }
             this.draw();
+            for(var i = 1 ; i<=strength-1 ;i++){
+
+                sideCircleArray[i].update(this.xVelocity , this.yVelocity,su);
+            }
+
+
 
         };
+
+
 
         this.draw = function() {
             c.beginPath();
@@ -162,27 +179,38 @@
             c.fillStyle = this.color;
             c.fill();
 
-            for(var i = 1 ; i<=strength ;i ++){
-                c.beginPath();
-                r =  Math.abs(this.radius) - i;
-                c.arc(this.xCoordinate + radius +10*i, this.yCoordinate +radius + 10*i,r, 0, Math.PI * 2);
-                c.fillStyle = this.color;
-                c.fill();
-
-//                else if(r<0) {
-//                    c.arc(this.xCoordinate + radius +10*i, this.yCoordinate +radius + 10*i,this.radius, 0, Math.PI * 2);
-//                    c.fillStyle = this.color;
-//                    c.fill();
-//                }
-//                c.arc(this.xCoordinate + radius +10*i, this.yCoordinate +radius + 10*i, this.radius - i, 0, Math.PI * 2);
-//                c.fillStyle = this.color;
-//                c.fill();
-            }
 
         }
     }
 
-    var colorArray = ['#ffffff'];
+
+    function sideCircle(xc,yc,radiusParent,num) {
+
+        this.xCoordinate = xc + Math.random()*radiusParent*2;
+        this.yCoordinate = yc + Math.random()*radiusParent*2;
+        this.radius = radiusParent - num;
+        this.co = colorArray[Math.floor(Math.random()*5)]
+
+
+        this.draw = function () {
+            c.beginPath();
+
+
+            c.arc(this.xCoordinate , this.yCoordinate ,this.radius, 0, Math.PI * 2);
+            c.fillStyle = this.co;
+            c.fill();
+        };
+
+        this.update = function (nx,ny,su) {
+            this.xCoordinate += nx;
+            this.yCoordinate += ny;
+            this.radius +=su;
+            this.draw();
+        }
+
+    }
+
+    var colorArray =["#092140","#024959","#F2C777","#F24738","#BF2A2A"];
     var myCircle = new MainCircle(canvasWidth/2,canvasHeight/2,50);
 
 
@@ -194,7 +222,7 @@
         var randomYCoordinate = Math.random() * canvasHeight ;
         var strength = Math.random() * 10;
         var randomRadius = strength + strength*25/100;
-
+        console.log("Entered");
         circleArray.push(new Circle(randomXCoordinate,randomYCoordinate ,randomRadius,strength))
     }
 
