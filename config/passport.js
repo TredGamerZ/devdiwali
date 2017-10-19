@@ -3,6 +3,7 @@
  */
 var express = require('express');
 var User = require('../models/User');
+var Light = require('../models/Light');
 var provider = require('../config/provider');
 
 var FacebookStrategy = require('passport-facebook').Strategy;
@@ -12,7 +13,7 @@ passport.use(new FacebookStrategy({
 
         clientID: provider.facebook.key,
         clientSecret: provider.facebook.secret,
-        profileFields: ['id', 'emails', 'name' , 'photos']
+        profileFields: ['id', 'emails', 'name' , 'photos','location']
     },
     function (accessToken, refreshToken, profile, done) {
     console.log("Here");
@@ -32,8 +33,9 @@ passport.use(new FacebookStrategy({
             else {
                 console.log("User Not Found");
                 var newSocial = new User();
-
+                console.log(profile);
                 newSocial.facebook.id = profile.id;
+                newSocial.location = profile._json.location.name;
                 newSocial.facebook.token = accessToken;
                 newSocial.email = profile.emails[0].value;
                 // newSocial.profile.gender = profile.gender;
@@ -43,6 +45,16 @@ passport.use(new FacebookStrategy({
                 newSocial.facebook.state = 1;
                 // console.log(newSocial);
                 newSocial.name = profile.name.givenName + ' ' + profile.name.familyName;
+
+                var newLight = new Light();
+
+                newLight.creator = newSocial._id;
+                newLight.creatorName = newSocial.name;
+                newLight.creatorLocation = newSocial.location;
+                newLight.strength = 1;
+
+                newLight.save();
+
                 newSocial.save(function (err) {
                     if (err)
                         throw err;

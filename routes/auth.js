@@ -21,7 +21,7 @@ router.get('/facebook', function (req, res, next) {
     console.log(req.session.queryUrl);
     console.log("Up Done");
     next();
-}, passport.authenticate('facebook', {callbackURL: 'auth/facebook/callback', scope: 'email'}));
+}, passport.authenticate('facebook', {callbackURL: 'auth/facebook/callback', scope: ['email','user_location']}));
 
 
 router.get('/facebook/callback', passport.authenticate('facebook',

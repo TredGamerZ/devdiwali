@@ -5,68 +5,56 @@ var Light = require('../models/Light');
 /* GET home page. */
 router.get('/', function(req, res, next) {
 
-
-    if(req.session.light_user){
-        Light.findOne({_id:light_user}).exec(function (ck) {
-            if(ck){
-                Light.find({}).exec(function (callback) {
-
-                    if(callback){
-                        var lights = callback;
-                        res.render('index', { title: 'Diwali | Light Up ' ,light:lights,user:ck});
-
-                    }
-                    else {
-                        res.render('index', { title: 'Diwali | Light Up' ,lights:null,user:null});
-
-                    }
-
-                });
-            }
-        })
-    }
-    else {
-
-
-        Light.find({}).exec(function (callback) {
+        if(req.user){
+            res.redirect('/'+req.user._id);
+        }
+        Light.find({}).populate(['creator']).exec(function (err,callback) {
 
             if (callback) {
-                var lights = callback;
-                res.render('index', {title: 'Diwali | Light Up ', light: lights});
+                var al = callback.length;
+                console.log(callback);
+                res.render('index', {title: 'Diwali | Light Up ', Lights: JSON.stringify(callback),al:al});
 
             }
-            else {
-                res.render('index', {title: 'Diwali | Light Up', lights: null});
-
-            }
-
         });
-    }
+
 });
 
-router.post('/light/add',function (req,res) {
-    var nLight = new Light();
-    nLight.creatorName = req.body.name;
-    nLight.creatorLocation = req.body.loc;
-    nLight.strength = 0;
-
-    nLight.save(function (err) {
-        if(err)
-            throw err;
-        else
-        {
-            Light.findOne({_id:nlight._id}).exec(function (callback) {
-                if(callback){
-                    req.session.light_user = callback._id;
-                    req.session.save();
-                }
-            });
-            res.redirect('/');
-
-        }
-    });
-
-
+router.get('/:id',function (req,res,next) {
+    // console.log(req.user);
+    var id = req.params['id'];
+    if(!req.user){
+        console.log("Not Signed In");
+        Light.findOne({creator:id}).populate(['creator']).exec(function (err,light1) {
+            if(light1){
+                console.log("Main Found");
+                console.log(light1);
+                Light.find({}).exec(function (err,lights) {
+                    if(lights){
+                        var al = lights.length;
+                        res.render('user',{title: "Diwali | Light Up " , user:req.user,usr:false ,userLight:JSON.stringify(light1), Lights:JSON.stringify(lights),al:al});
+                    }
+                });
+            }
+        });
+    }
+    else if(req.user._id == id){
+        console.log("Signed In User");
+        Light.findOne({creator:id}).populate(['creator']).exec(function (err,light1) {
+            if(light1){
+                console.log("Main Found");
+                console.log(light1);
+                Light.find({}).exec(function (err,lights) {
+                    if(lights){
+                        var al = lights.length;
+                        res.render('user',{title: "Diwali | Light Up " , user:req.user,usr:true ,userLight:JSON.stringify(light1), Lights:JSON.stringify(lights),al:al});
+                    }
+                });
+            }
+        });
+    }
+    else
+        res.render('user',{title: "Diwali | Light Up | "+req.user.name ,user:null});
 });
 
 module.exports = router;

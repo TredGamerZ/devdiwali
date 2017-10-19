@@ -6,6 +6,13 @@
         /*background: -webkit-linear-gradient(to right, #5B86E5, #36D1DC);  !* Chrome 10-25, Safari 5.1-6 *!*/
         /*background: linear-gradient(to right, #5B86E5, #36D1DC); !* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *!*/
     /*}*/}
+    .btn-w,.btn-w:focus{
+     color: white!important;
+        opacity: 0.6;
+        border-color: rgba(220, 220, 220, 0.75);
+        box-shadow: none;
+
+    }
     body{
         padding: 0px;
     }
@@ -47,20 +54,46 @@
 </style>
 
 <canvas id="myCanvas" style="position: relative;z-index: 999"></canvas>
+{{#if user}}
+    <div class="container h-100" style="position: relative;top:-100%;z-index:">
+        <div class="row h-100 align-items-center">
+            <div class="col mt-5">
+                <div class="container mt-5">
+                    <div class="row pt-5 justify-content-center">
+                        <div class="col-md-4 mt-5 pt-5 text-center" style="z-index: 1000" >
+                            <!--<form class="form-dark" action="/light/add" method="post" style="z-index: 1000">-->
+                            <!--<div class="form-group mt-3">-->
+                            <!--&lt;!&ndash;<label for="exampleFormControlInput1">Email address</label>&ndash;&gt;-->
+                            <!--<input type="text" class="form-control" name="name"id="exampleFormControlInput1" placeholder="Enter your Name" required><br>-->
+                            <!--<input type="text" class="form-control" name="loc"id="exampleFormControlInput1" placeholder="Enter your Location" required>-->
+                            <!--</div>-->
+                            <p class="lead f2 c-theme-1">{{user.name}}</p>
+                            <p class=" f2 c-theme-1">{{user.location}}</p>
+                            <!--<a href="auth/facebook" class=" btn btn-outline-primary btn-w" style="z-index: 1000"><i class="fa fa-facebook-square"></i> Click to Light Up!</a>-->
+                            <!--</form>form-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+{{/if}}
 <div class="container h-100" style="position: relative;top:-100%;z-index:">
     <div class="row h-100 align-items-center">
         <div class="col mt-5">
             <div class="container mt-5">
                 <div class="row pt-5 justify-content-center">
                     <div class="col-md-4 mt-5 pt-5 text-center" style="z-index: 1000" >
-                        <form class="form-dark" action="/light/add" method="post" style="z-index: 1000">
-                            <div class="form-group mt-3">
-                                <!--<label for="exampleFormControlInput1">Email address</label>-->
-                                <input type="text" class="form-control" name="name"id="exampleFormControlInput1" placeholder="Enter your Name" required><br>
-                                <input type="text" class="form-control" name="loc"id="exampleFormControlInput1" placeholder="Enter your Location" required>
-                            </div>
-                            <button type="submit" class=" btn btn-outline-primary " style="z-index: 1000">Light Up</button>
-                        </form>
+                        <!--<form class="form-dark" action="/light/add" method="post" style="z-index: 1000">-->
+                            <!--<div class="form-group mt-3">-->
+                                <!--&lt;!&ndash;<label for="exampleFormControlInput1">Email address</label>&ndash;&gt;-->
+                                <!--<input type="text" class="form-control" name="name"id="exampleFormControlInput1" placeholder="Enter your Name" required><br>-->
+                                <!--<input type="text" class="form-control" name="loc"id="exampleFormControlInput1" placeholder="Enter your Location" required>-->
+                            <!--</div>-->
+                        <p class="lead f2 c-theme-1">This is you! Light it Up!</p>
+                            <a href="auth/facebook" class=" btn btn-outline-primary btn-w" style="z-index: 1000"><i class="fa fa-facebook-square"></i> Click to Light Up!</a>
+                        <!--</form>form-->
                     </div>
                 </div>
             </div>
@@ -69,10 +102,7 @@
     </div>
 </div>
 {{endif}}
-{{#if user}}
-    <p> {{user.name}}</p>
 
-{{/if}}
 <!--<a class="btn btn-outline-primary" href="/auth/facebook">Fb Login</a>-->
 <script>
     var canvas = document.getElementById("myCanvas");
@@ -180,9 +210,9 @@
             if(xDistance <50 && xDistance > -50 && yDistance < 50 && yDistance > -50){
                 c.font = "20px Quicksand";
                 c.fillStyle = "#FFFFFF";
-                c.fillText("Tanmay Singh",this.xCoordinate,this.yCoordinate+this.radius+40);
+                c.fillText(name,this.xCoordinate,this.yCoordinate+this.radius+40);
                 c.font = "14px Quicksand";
-                c.fillText("from Delhi",this.xCoordinate,this.yCoordinate+this.radius+60);
+                c.fillText("from "+location,this.xCoordinate,this.yCoordinate+this.radius+60);
 
             }
             this.draw();
@@ -294,14 +324,14 @@
 
     var circleArray = [];
 //    var az =
-
-    for (var i = 0; i < 8; i++) {
+    var data = {{{Lights}}};
+    for (var i = 0; i < {{al}}; i++) {
         var randomXCoordinate = Math.random() * canvasWidth ;
         var randomYCoordinate = Math.random() * canvasHeight ;
         var strength = Math.random() * 10;
         var randomRadius = strength + strength*25/100 + 5;
         console.log("Entered");
-        circleArray.push(new Circle(randomXCoordinate,randomYCoordinate ,randomRadius,strength))
+        circleArray.push(new Circle(randomXCoordinate,randomYCoordinate ,randomRadius,data[i].strength,data[i].creatorName,data[i].creatorLocation,data[i].id))
     }
 
 
