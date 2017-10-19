@@ -161,12 +161,14 @@
 
         }
     }
+    var myData = {{{userLight}}};
+
 
     function Circle(xCoordinate, yCoordinate, radius,strength,name,location,link) {
         var randomNumber = Math.floor((Math.random() * 5));
         var randomTrueOrFalse = Math.floor(Math.random() * 2);
         var randomTrueOrFalseTwo = Math.floor(Math.random() * 2);
-
+        this.link = link;
         this.xCoordinate = xCoordinate;
         this.yCoordinate = yCoordinate;
 
@@ -241,10 +243,10 @@
 
 
         this.draw = function() {
-            <!--if(link == {{userLight._id}})-->
-            <!--{-->
-                <!--this.color = "white";-->
-            <!--}-->
+            if(this.link == myData._id)
+            {
+                this.color = "white";
+            }
                 c.beginPath();
             c.arc(this.xCoordinate, this.yCoordinate, Math.abs(this.radius), 0, Math.PI * 2);
             c.fillStyle = this.color;
@@ -308,7 +310,6 @@
         }
 
     }
-    <!--var myData = {{{userLight}}};-->
     var colorArray =["#092140","#024959","#F2C777","#F24738","#BF2A2A"];
     var myCircle = new MainCircle(canvasWidth/2,canvasHeight/2,50,0);
 
