@@ -17,7 +17,7 @@ passport.use(new FacebookStrategy({
     },
     function (accessToken, refreshToken, profile, done) {
     console.log("Here");
-        User.findOne({'email': profile.emails[0].value}, function (err, user) {
+        User.findOne({'facebook.id': profile.id}, function (err, user) {
             // console.log(profile);
             if (err) {
                 console.log("Err");
@@ -46,10 +46,14 @@ passport.use(new FacebookStrategy({
 
                 }
                 newSocial.facebook.token = accessToken;
-                newSocial.email = profile.emails[0].value;
+                if(profile.email){
+                    newSocial.email = profile.emails[0].value || null;
+                }
+                else
+                    newSocial.email =  null;
                 // newSocial.profile.gender = profile.gender;
                 newSocial.image = profile.photos ? profile.photos[0].value : '/img/faces/unknown-user-pic.jpg';
-                newSocial.facebook.email = profile.emails[0].value;
+                // newSocial.facebook.email = profile.emails[0].value;
                 newSocial.facebook.name = profile.name.givenName + ' ' + profile.name.familyName;
                 newSocial.facebook.state = 1;
                 // console.log(newSocial);
