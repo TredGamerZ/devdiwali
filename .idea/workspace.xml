@@ -1,76 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a766156b-9a07-489e-825c-73342948e238" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/bg-effect.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/fc.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/glitch.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/postprocessing/AdaptiveToneMappingPass.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/postprocessing/BloomPass.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/postprocessing/BokehPass.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/postprocessing/ClearPass.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/postprocessing/CubeTexturePass.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/postprocessing/DotScreenPass.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/postprocessing/EffectComposer.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/postprocessing/FilmPass.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/postprocessing/GlitchPass.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/postprocessing/MaskPass.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/postprocessing/OutlinePass.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/postprocessing/RenderPass.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/postprocessing/SMAAPass.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/postprocessing/SSAARenderPass.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/postprocessing/SavePass.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/postprocessing/ShaderPass.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/postprocessing/TAARenderPass.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/postprocessing/TexturePass.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/postprocessing/UnrealBloomPass.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/shaders/BasicShader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/shaders/BleachBypassShader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/shaders/BlendShader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/shaders/BokehShader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/shaders/BokehShader2.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/shaders/BrightnessContrastShader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/shaders/ColorCorrectionShader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/shaders/ColorifyShader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/shaders/ConvolutionShader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/shaders/CopyShader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/shaders/DOFMipMapShader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/shaders/DigitalGlitch.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/shaders/DotScreenShader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/shaders/EdgeShader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/shaders/EdgeShader2.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/shaders/FXAAShader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/shaders/FilmShader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/shaders/FocusShader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/shaders/FresnelShader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/shaders/GammaCorrectionShader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/shaders/HorizontalBlurShader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/shaders/HorizontalTiltShiftShader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/shaders/HueSaturationShader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/shaders/KaleidoShader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/shaders/LuminosityHighPassShader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/shaders/LuminosityShader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/shaders/MirrorShader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/shaders/NormalMapShader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/shaders/OceanShaders.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/shaders/ParallaxShader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/shaders/RGBShiftShader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/shaders/SMAAShader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/shaders/SSAOShader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/shaders/SepiaShader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/shaders/TechnicolorShader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/shaders/ToneMapShader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/shaders/TriangleBlurShader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/shaders/UnpackDepthRGBAShader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/shaders/VerticalBlurShader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/shaders/VerticalTiltShiftShader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/shaders/VignetteShader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/table.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/home.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stylesheets/main.css" afterPath="$PROJECT_DIR$/public/stylesheets/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/index.js" afterPath="$PROJECT_DIR$/routes/index.js" />
-    </list>
+    <list default="true" id="a766156b-9a07-489e-825c-73342948e238" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -477,16 +408,16 @@
       <workItem from="1508435767615" duration="551000" />
       <workItem from="1508474754175" duration="276000" />
       <workItem from="1508475884645" duration="1952000" />
-      <workItem from="1516514564398" duration="3670000" />
+      <workItem from="1516514564398" duration="3716000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43648000" />
+    <option name="totallyTimeSpent" value="43694000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24762908" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -495,7 +426,7 @@
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35861322" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35861322" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
