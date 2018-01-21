@@ -20,6 +20,9 @@ router.get('/', function(req, res, next) {
 
 });
 
+router.get('/home',function (req,res) {
+  res.render('home');
+});
 router.get('/:id',function (req,res,next) {
     // console.log(req.user);
     var id = req.params['id'];
